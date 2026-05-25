@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "title": "MSI Infinite X Plus 13th",
+    "brand": "MSI",
+    "category": "gaming",
+    "price": 185000,
+    "stock": true,
+    "image": "assets/images/product-1.jpg",
+    "description": "Мощный игровой компьютер на базе процессора Intel Core i7 13-го поколения. Идеально подходит для современных игр и работы с графикой.",
+    "specs": {
+      "cpu": "Intel Core i7-13700F",
+      "ram": "16 ГБ DDR4",
+      "gpu": "NVIDIA GeForce RTX 4060 Ti 8GB",
+      "storage": "512 ГБ NVMe SSD"
+    }
+  },
+  {
+    "id": 2,
+    "title": "ASUS ROG Strix GA15",
+    "brand": "ASUS",
+    "category": "gaming",
+    "price": 165000,
+    "stock": true,
+    "image": "assets/images/product-2.jpg",
+    "description": "Игровой ПК с отличным охлаждением и производительностью. Оснащён процессором AMD Ryzen 7 и видеокартой RTX 4060.",
+    "specs": {
+      "cpu": "AMD Ryzen 7 5700G",
+      "ram": "16 ГБ DDR4",
+      "gpu": "NVIDIA GeForce RTX 4060 8GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 3,
+    "title": "HP ProDesk 600 G6",
+    "brand": "HP",
+    "category": "office",
+    "price": 55000,
+    "stock": true,
+    "image": "assets/images/product-3.jpg",
+    "description": "Надёжный офисный компьютер для повседневных задач. Компактный корпус и тихая работа.",
+    "specs": {
+      "cpu": "Intel Core i5-10500",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 630",
+      "storage": "256 ГБ SSD"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Dell OptiPlex 7090",
+    "brand": "Dell",
+    "category": "office",
+    "price": 62000,
+    "stock": true,
+    "image": "assets/images/product-4.jpg",
+    "description": "Бизнес-компьютер с расширенными возможностями подключения. Идеален для корпоративного использования.",
+    "specs": {
+      "cpu": "Intel Core i5-11500",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 750",
+      "storage": "512 ГБ SSD"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Lenovo ThinkStation P350",
+    "brand": "Lenovo",
+    "category": "workstation",
+    "price": 125000,
+    "stock": true,
+    "image": "assets/images/product-5.jpg",
+    "description": "Рабочая станция для профессионалов. Поддерживает работу с CAD, 3D-моделированием и видеомонтажом.",
+    "specs": {
+      "cpu": "Intel Core i7-11700",
+      "ram": "32 ГБ DDR4",
+      "gpu": "NVIDIA T600 4GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 6,
+    "title": "MSI Trident AS 13th",
+    "brand": "MSI",
+    "category": "gaming",
+    "price": 195000,
+    "stock": false,
+    "image": "assets/images/product-6.jpg",
+    "description": "Компактный игровой компьютер в стильном корпусе. Высокая производительность при минимальных габаритах.",
+    "specs": {
+      "cpu": "Intel Core i7-13700F",
+      "ram": "16 ГБ DDR5",
+      "gpu": "NVIDIA GeForce RTX 4070 12GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 7,
+    "title": "ASUS ExpertCenter D700",
+    "brand": "ASUS",
+    "category": "office",
+    "price": 48000,
+    "stock": true,
+    "image": "assets/images/product-7.jpg",
+    "description": "Экономичное решение для офиса. Надёжность и энергоэффективность.",
+    "specs": {
+      "cpu": "Intel Core i3-10100",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 630",
+      "storage": "256 ГБ SSD"
+    }
+  },
+  {
+    "id": 8,
+    "title": "HP Z2 Tower G5",
+    "brand": "HP",
+    "category": "workstation",
+    "price": 145000,
+    "stock": true,
+    "image": "assets/images/product-8.jpg",
+    "description": "Профессиональная рабочая станция для инженеров и дизайнеров. Сертифицирована для Autodesk и Adobe.",
+    "specs": {
+      "cpu": "Intel Core i7-10700",
+      "ram": "32 ГБ DDR4",
+      "gpu": "NVIDIA Quadro P2200 5GB",
+      "storage": "512 ГБ NVMe SSD + 2 ТБ HDD"
+    }
+  },
+  {
+    "id": 9,
+    "title": "Acer Predator Orion 3000",
+    "brand": "Acer",
+    "category": "gaming",
+    "price": 155000,
+    "stock": true,
+    "image": "assets/images/product-9.jpg",
+    "description": "Игровой ПК с агрессивным дизайном и отличной производительностью. RGB-подсветка и эффективное охлаждение.",
+    "specs": {
+      "cpu": "Intel Core i5-12400F",
+      "ram": "16 ГБ DDR4",
+      "gpu": "NVIDIA GeForce RTX 3060 12GB",
+      "storage": "512 ГБ NVMe SSD"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Dell Precision 3660",
+    "brand": "Dell",
+    "category": "workstation",
+    "price": 135000,
+    "stock": true,
+    "image": "assets/images/product-10.jpg",
+    "description": "Рабочая станция для требовательных задач. Поддержка профессиональных видеокарт NVIDIA RTX A-series.",
+    "specs": {
+      "cpu": "Intel Core i7-12700",
+      "ram": "32 ГБ DDR5",
+      "gpu": "NVIDIA RTX A2000 6GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Lenovo IdeaCentre Gaming 5i",
+    "brand": "Lenovo",
+    "category": "gaming",
+    "price": 125000,
+    "stock": true,
+    "image": "assets/images/product-11.jpg",
+    "description": "Доступный игровой компьютер для начинающих геймеров. Хороший баланс цены и производительности.",
+    "specs": {
+      "cpu": "Intel Core i5-12400F",
+      "ram": "8 ГБ DDR4",
+      "gpu": "NVIDIA GeForce GTX 1650 Super 4GB",
+      "storage": "512 ГБ NVMe SSD"
+    }
+  },
+  {
+    "id": 12,
+    "title": "HP EliteDesk 800 G8",
+    "brand": "HP",
+    "category": "office",
+    "price": 58000,
+    "stock": true,
+    "image": "assets/images/product-12.jpg",
+    "description": "Корпоративный ПК с расширенными функциями безопасности. Подходит для бизнеса любого размера.",
+    "specs": {
+      "cpu": "Intel Core i5-11500",
+      "ram": "16 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 750",
+      "storage": "512 ГБ SSD"
+    }
+  },
+  {
+    "id": 13,
+    "title": "ASUS ROG GT15",
+    "brand": "ASUS",
+    "category": "gaming",
+    "price": 225000,
+    "stock": false,
+    "image": "assets/images/product-13.jpg",
+    "description": "Флагманский игровой ПК с топовыми компонентами. Максимальная производительность в любых играх.",
+    "specs": {
+      "cpu": "Intel Core i9-12900K",
+      "ram": "32 ГБ DDR5",
+      "gpu": "NVIDIA GeForce RTX 4080 16GB",
+      "storage": "2 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 14,
+    "title": "MSI PRO DP21Z",
+    "brand": "MSI",
+    "category": "office",
+    "price": 42000,
+    "stock": true,
+    "image": "assets/images/product-14.jpg",
+    "description": "Компактный офисный ПК в моноблочном исполнении. Экономия места на рабочем столе.",
+    "specs": {
+      "cpu": "AMD Ryzen 5 5500U",
+      "ram": "8 ГБ DDR4",
+      "gpu": "AMD Radeon Graphics",
+      "storage": "256 ГБ SSD"
+    }
+  },
+  {
+    "id": 15,
+    "title": "Lenovo ThinkCentre M70a",
+    "brand": "Lenovo",
+    "category": "office",
+    "price": 52000,
+    "stock": true,
+    "image": "assets/images/product-15.jpg",
+    "description": "Моноблок для офиса с 23.8-дюймовым дисплеем. Всё необходимое в одном устройстве.",
+    "specs": {
+      "cpu": "Intel Core i5-10500T",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 630",
+      "storage": "256 ГБ SSD"
+    }
+  },
+  {
+    "id": 16,
+    "title": "Dell XPS 8950",
+    "brand": "Dell",
+    "category": "gaming",
+    "price": 175000,
+    "stock": true,
+    "image": "assets/images/product-16.jpg",
+    "description": "Премиальный игровой и рабочий ПК. Стильный дизайн и высокая производительность.",
+    "specs": {
+      "cpu": "Intel Core i7-12700",
+      "ram": "16 ГБ DDR5",
+      "gpu": "NVIDIA GeForce RTX 4060 Ti 8GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 17,
+    "title": "HP Workstation Z4 G4",
+    "brand": "HP",
+    "category": "workstation",
+    "price": 185000,
+    "stock": true,
+    "image": "assets/images/product-17.jpg",
+    "description": "Мощная рабочая станция для рендеринга и вычислений. Поддержка двух процессоров.",
+    "specs": {
+      "cpu": "Intel Xeon W-2245",
+      "ram": "64 ГБ DDR4 ECC",
+      "gpu": "NVIDIA Quadro RTX 4000 8GB",
+      "storage": "1 ТБ NVMe SSD + 4 ТБ HDD"
+    }
+  },
+  {
+    "id": 18,
+    "title": "ASUS VivoPro Mini PC",
+    "brand": "ASUS",
+    "category": "office",
+    "price": 38000,
+    "stock": true,
+    "image": "assets/images/product-18.jpg",
+    "description": "Ультракомпактный ПК для базовых офисных задач. Можно крепить к монитору.",
+    "specs": {
+      "cpu": "Intel Celeron N5105",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics",
+      "storage": "256 ГБ SSD"
+    }
+  },
+  {
+    "id": 19,
+    "title": "MSI Creator P100X",
+    "brand": "MSI",
+    "category": "workstation",
+    "price": 165000,
+    "stock": false,
+    "image": "assets/images/product-19.jpg",
+    "description": "Компактная рабочая станция для создателей контента. Оптимизирован для Adobe Creative Cloud.",
+    "specs": {
+      "cpu": "Intel Core i9-11900K",
+      "ram": "32 ГБ DDR4",
+      "gpu": "NVIDIA GeForce RTX 3070 8GB",
+      "storage": "1 ТБ NVMe SSD"
+    }
+  },
+  {
+    "id": 20,
+    "title": "Acer Veriton X4660G",
+    "brand": "Acer",
+    "category": "office",
+    "price": 45000,
+    "stock": true,
+    "image": "assets/images/product-20.jpg",
+    "description": "Надёжный офисный компьютер с возможностью апгрейда. Хорошее соотношение цены и качества.",
+    "specs": {
+      "cpu": "Intel Core i3-9100",
+      "ram": "8 ГБ DDR4",
+      "gpu": "Intel UHD Graphics 630",
+      "storage": "256 ГБ SSD"
+    }
+  }
+]

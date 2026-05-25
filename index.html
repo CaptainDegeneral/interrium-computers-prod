@@ -14,9 +14,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
     <header id="header" class="header">
@@ -39,46 +45,278 @@
           </ul>
         </nav>
         <a href="tel:+74951234567" class="header__phone">+7 (495) 123-45-67</a>
-        <button type="button" class="btn btn--primary header__btn">
+        <button type="button" class="btn btn--primary header__btn" data-modal="requestModal">
           Оставить заявку
         </button>
-        <a href="cart.html" class="header__cart">Корзина</a>
+        <a href="cart.html" class="header__cart">
+          Корзина
+          <span class="header__cart-count"></span>
+        </a>
       </div>
     </header>
 
     <main class="main">
       <section class="hero">
         <div class="container">
-          <!-- <img src="assets/images/banner_1.png" alt="" /> -->
           <h1 class="hero__title">Оптовые поставки компьютеров для бизнеса</h1>
           <p class="hero__subtitle">
             Надёжный партнёр для компаний, школ и организаций. Более 1000
             позиций в наличии.
           </p>
           <div class="hero__buttons">
-            <button type="button" class="btn btn--primary">
-              Смотреть каталог
-            </button>
-            <button type="button" class="btn btn--outline">
+            <a href="catalog.html" class="btn btn--primary">Перейти в каталог</a>
+            <button type="button" class="btn btn--outline" data-modal="requestModal">
               Оставить заявку
             </button>
           </div>
         </div>
       </section>
 
-      <section class="featured-products">
+      <section class="advantages section">
+        <div class="container">
+          <h2 class="section-title">Наши преимущества</h2>
+          <div class="advantages__grid">
+            <article class="advantage-card fade-in">
+              <div class="advantage-card__icon">💰</div>
+              <h3 class="advantage-card__title">Оптовые цены</h3>
+              <p class="advantage-card__text">Специальные условия для крупных заказов</p>
+            </article>
+            <article class="advantage-card fade-in">
+              <div class="advantage-card__icon">🚚</div>
+              <h3 class="advantage-card__title">Быстрая доставка</h3>
+              <p class="advantage-card__text">Доставка по всей России от 2 дней</p>
+            </article>
+            <article class="advantage-card fade-in">
+              <div class="advantage-card__icon">🛡️</div>
+              <h3 class="advantage-card__title">Гарантия качества</h3>
+              <p class="advantage-card__text">Официальная гарантия до 3 лет</p>
+            </article>
+            <article class="advantage-card fade-in">
+              <div class="advantage-card__icon">📞</div>
+              <h3 class="advantage-card__title">Техподдержка</h3>
+              <p class="advantage-card__text">Консультации и поддержка 24/7</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-products section">
         <div class="container">
           <h2 class="section-title">Популярные товары</h2>
+          <div class="featured-products__grid">
+            <article class="product-card fade-in" data-id="1">
+              <div class="product-card__image-wrapper">
+                <img src="assets/images/product-1.jpg" alt="MSI Infinite X Plus 13th" class="product-card__image" loading="lazy">
+                <span class="product-card__badge product-card__badge--in-stock">В наличии</span>
+              </div>
+              <div class="product-card__content">
+                <span class="product-card__brand">MSI</span>
+                <h3 class="product-card__title">MSI Infinite X Plus 13th</h3>
+                <p class="product-card__price">185 000 ₽</p>
+                <a href="product.html?id=1" class="btn btn--outline">Подробнее</a>
+              </div>
+            </article>
+            <article class="product-card fade-in" data-id="2">
+              <div class="product-card__image-wrapper">
+                <img src="assets/images/product-2.jpg" alt="ASUS ROG Strix GA15" class="product-card__image" loading="lazy">
+                <span class="product-card__badge product-card__badge--in-stock">В наличии</span>
+              </div>
+              <div class="product-card__content">
+                <span class="product-card__brand">ASUS</span>
+                <h3 class="product-card__title">ASUS ROG Strix GA15</h3>
+                <p class="product-card__price">165 000 ₽</p>
+                <a href="product.html?id=2" class="btn btn--outline">Подробнее</a>
+              </div>
+            </article>
+            <article class="product-card fade-in" data-id="5">
+              <div class="product-card__image-wrapper">
+                <img src="assets/images/product-5.jpg" alt="Lenovo ThinkStation P350" class="product-card__image" loading="lazy">
+                <span class="product-card__badge product-card__badge--in-stock">В наличии</span>
+              </div>
+              <div class="product-card__content">
+                <span class="product-card__brand">Lenovo</span>
+                <h3 class="product-card__title">Lenovo ThinkStation P350</h3>
+                <p class="product-card__price">125 000 ₽</p>
+                <a href="product.html?id=5" class="btn btn--outline">Подробнее</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps section">
+        <div class="container">
+          <h2 class="section-title">Как мы работаем</h2>
+          <div class="steps__list">
+            <div class="step fade-in">
+              <span class="step__number">1</span>
+              <h3 class="step__title">Заявка</h3>
+              <p class="step__text">Оставьте заявку на сайте или позвоните нам</p>
+            </div>
+            <div class="step fade-in">
+              <span class="step__number">2</span>
+              <h3 class="step__title">Подбор</h3>
+              <p class="step__text">Подберём оптимальное решение под ваши задачи</p>
+            </div>
+            <div class="step fade-in">
+              <span class="step__number">3</span>
+              <h3 class="step__title">Договор</h3>
+              <p class="step__text">Заключим договор и согласуем детали</p>
+            </div>
+            <div class="step fade-in">
+              <span class="step__number">4</span>
+              <h3 class="step__title">Доставка</h3>
+              <p class="step__text">Доставим технику в срок и настроим при необходимости</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews section">
+        <div class="container">
+          <h2 class="section-title">Отзывы клиентов</h2>
+          <div class="reviews__grid">
+            <article class="review-card fade-in">
+              <blockquote class="review-card__quote">
+                <p>«Заказывали партию компьютеров для офиса. Всё прошло отлично — быстро, качественно, по хорошей цене.»</p>
+              </blockquote>
+              <div class="review-card__author">
+                <img src="assets/images/avatar-1.jpg" alt="" class="review-card__avatar" loading="lazy">
+                <div>
+                  <p class="review-card__name">Алексей Петров</p>
+                  <p class="review-card__position">ИТ-директор, ООО «ТехноСтарт»</p>
+                </div>
+              </div>
+            </article>
+            <article class="review-card fade-in">
+              <blockquote class="review-card__quote">
+                <p>«Работаем с Интерриум уже третий год. Надёжный партнёр, всегда помогают с подбором конфигураций.»</p>
+              </blockquote>
+              <div class="review-card__author">
+                <img src="assets/images/avatar-2.jpg" alt="" class="review-card__avatar" loading="lazy">
+                <div>
+                  <p class="review-card__name">Мария Иванова</p>
+                  <p class="review-card__position">Закупки, Сеть школ «Знание»</p>
+                </div>
+              </div>
+            </article>
+            <article class="review-card fade-in">
+              <blockquote class="review-card__quote">
+                <p>«Нужны были рабочие станции для дизайн-студии. Подобрали идеально, всё работает без нареканий.»</p>
+              </blockquote>
+              <div class="review-card__author">
+                <img src="assets/images/avatar-3.jpg" alt="" class="review-card__avatar" loading="lazy">
+                <div>
+                  <p class="review-card__name">Дмитрий Соколов</p>
+                  <p class="review-card__position">Основатель, Creative Lab</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-form-section section">
+        <div class="container">
+          <h2 class="section-title">Оставить заявку</h2>
+          <p class="section-subtitle">Заполните форму и мы свяжемся с вами в ближайшее время</p>
+          <form class="form contact-form">
+            <div class="form__field">
+              <label for="contact-name" class="form__label">Имя</label>
+              <input type="text" id="contact-name" name="name" class="form__input" placeholder="Ваше имя" required />
+            </div>
+            <div class="form__field">
+              <label for="contact-org" class="form__label">Организация</label>
+              <input type="text" id="contact-org" name="organization" class="form__input" placeholder="Название организации" required />
+            </div>
+            <div class="form__field">
+              <label for="contact-phone" class="form__label">Телефон</label>
+              <input type="tel" id="contact-phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__" required />
+            </div>
+            <div class="form__field">
+              <label for="contact-email" class="form__label">Email</label>
+              <input type="email" id="contact-email" name="email" class="form__input" placeholder="example@mail.ru" required />
+            </div>
+            <div class="form__field">
+              <label for="contact-message" class="form__label">Сообщение</label>
+              <textarea id="contact-message" name="message" class="form__textarea" placeholder="Комментарий к заказу"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary form__submit">Отправить заявку</button>
+          </form>
+          <div class="form__success" style="display: none;">
+            <h3 class="form__success-title">Спасибо! Заявка принята!</h3>
+            <p>Мы свяжемся с вами в ближайшее время.</p>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Modal -->
+    <div class="modal-overlay" id="requestModal">
+      <div class="modal">
+        <button type="button" class="modal__close" aria-label="Закрыть">×</button>
+        <h2 class="modal__title">Оставить заявку</h2>
+        <form class="form">
+          <div class="form__field">
+            <label for="modal-name" class="form__label">Имя</label>
+            <input type="text" id="modal-name" name="name" class="form__input" placeholder="Ваше имя" required />
+          </div>
+          <div class="form__field">
+            <label for="modal-org" class="form__label">Организация</label>
+            <input type="text" id="modal-org" name="organization" class="form__input" placeholder="Название организации" required />
+          </div>
+          <div class="form__field">
+            <label for="modal-phone" class="form__label">Телефон</label>
+            <input type="tel" id="modal-phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__" required />
+          </div>
+          <div class="form__field">
+            <label for="modal-email" class="form__label">Email</label>
+            <input type="email" id="modal-email" name="email" class="form__input" placeholder="example@mail.ru" required />
+          </div>
+          <div class="form__field">
+            <label for="modal-comment" class="form__label">Комментарий</label>
+            <textarea id="modal-comment" name="comment" class="form__textarea" placeholder="Дополнительная информация"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary form__submit">Отправить</button>
+        </form>
+        <div class="form__success" style="display: none;">
+          <h3 class="form__success-title">Спасибо! Заявка принята!</h3>
+          <p>Мы свяжемся с вами в ближайшее время.</p>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
+      <div class="container">
+        <div class="footer__column">
+          <h3>ООО «Интерриум»</h3>
+          <p>Оптовые поставки компьютерной техники для бизнеса с 2005 года.</p>
+        </div>
+        <div class="footer__column">
+          <h3>Навигация</h3>
+          <nav class="footer__links">
+            <a href="index.html" class="footer__link">Главная</a>
+            <a href="catalog.html" class="footer__link">Каталог</a>
+            <a href="about.html" class="footer__link">О компании</a>
+            <a href="contacts.html" class="footer__link">Контакты</a>
+          </nav>
+        </div>
+        <div class="footer__column">
+          <h3>Контакты</h3>
+          <address class="footer__contact">
+            <p>г. Москва, ул. Примерная, д. 10</p>
+            <p><a href="tel:+74951234567" class="footer__link">+7 (495) 123-45-67</a></p>
+            <p><a href="mailto:info@interrrium.ru" class="footer__link">info@interrrium.ru</a></p>
+            <p>Пн-Пт: 9:00 - 18:00</p>
+          </address>
+        </div>
+      </div>
       <div class="container">
         <p class="footer__copy">© 2026 ООО «Интерриум». Все права защищены.</p>
       </div>
     </footer>
 
+    <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
