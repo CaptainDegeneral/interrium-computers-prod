@@ -5,31 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Оптовая продажа компьютеров для бизнеса. ООО Интерриум — надёжный поставщик техники с 2005 года."
+      content="ООО «Интерриум» поставляет компьютеры оптом для бизнеса: офисные ПК, игровые решения и рабочие станции с гарантией, доставкой и техподдержкой."
     />
-    <title>Интерриум — оптовые поставки компьютеров</title>
+    <title>ООО Интерриум — оптовая продажа компьютеров</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/adaptive.css" />
   </head>
   <body>
-    <header id="header" class="header">
-      <div class="container">
-        <a href="index.html" class="header__logo">Интерриум</a>
-        <nav class="header__nav">
+    <header class="header" id="siteHeader">
+      <div class="container header__inner">
+        <a
+          href="index.html"
+          class="header__logo"
+          aria-label="ООО Интерриум, на главную"
+          >Интерриум</a
+        >
+        <nav class="header__nav" aria-label="Основная навигация">
           <ul class="header__nav-list">
             <li>
               <a href="index.html" class="header__nav-link active">Главная</a>
             </li>
-            <li>
-              <a href="catalog.html" class="header__nav-link">Каталог</a>
-            </li>
+            <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
             <li>
               <a href="about.html" class="header__nav-link">О компании</a>
             </li>
@@ -39,46 +49,430 @@
           </ul>
         </nav>
         <a href="tel:+74951234567" class="header__phone">+7 (495) 123-45-67</a>
-        <button type="button" class="btn btn--primary header__btn">
+        <button
+          type="button"
+          class="btn btn--primary header__btn"
+          data-modal="requestModal"
+        >
           Оставить заявку
         </button>
-        <a href="cart.html" class="header__cart">Корзина</a>
+        <a href="cart.html" class="header__cart" aria-label="Перейти в корзину">
+          <svg
+            class="header__cart-icon"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.33331 6H19.8672C20.4687 6 20.9341 6.52718 20.8595 7.12403L20.1095 13.124C20.0469 13.6245 19.6215 14 19.1172 14H16.5555H9.44442H7.99998"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 4H4.23362C4.68578 4 5.08169 4.30341 5.19924 4.74003L8.30076 16.26C8.41831 16.6966 8.81422 17 9.26638 17H19"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="10"
+              cy="20"
+              r="1"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="17.5"
+              cy="20"
+              r="1"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Корзина</span><span class="header__cart-count">0</span>
+        </a>
+        <button
+          type="button"
+          class="header__burger"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
-
     <main class="main">
-      <section class="hero">
-        <div class="container">
-          <!-- <img src="assets/images/banner_1.png" alt="" /> -->
-          <h1 class="hero__title">Оптовые поставки компьютеров для бизнеса</h1>
-          <p class="hero__subtitle">
-            Надёжный партнёр для компаний, школ и организаций. Более 1000
-            позиций в наличии.
-          </p>
-          <div class="hero__buttons">
-            <button type="button" class="btn btn--primary">
-              Смотреть каталог
-            </button>
-            <button type="button" class="btn btn--outline">
-              Оставить заявку
-            </button>
+      <section class="hero hero--home">
+        <div class="container hero__inner">
+          <div class="hero__media">
+            <img
+              src="assets/images/banner_1.png"
+              alt="Современные компьютеры для оптовой закупки"
+            />
+          </div>
+          <div class="hero__content">
+            <h1 class="hero__title">
+              Оптовые поставки компьютеров для бизнеса
+            </h1>
+            <p class="hero__subtitle">
+              ООО «Интерриум» комплектует офисы, учебные классы и рабочие
+              станции: подбираем конфигурации, держим склад и сопровождаем
+              поставку.
+            </p>
+            <div class="hero__buttons">
+              <a class="btn btn--primary" href="catalog.html"
+                >Перейти в каталог</a
+              ><button
+                type="button"
+                class="btn btn--outline"
+                data-modal="requestModal"
+              >
+                Оставить заявку
+              </button>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="featured-products">
+      <section class="section advantages">
+        <div class="container">
+          <h2 class="section-title">Почему выбирают нас</h2>
+          <div class="advantages__grid">
+            <article class="advantage-card">
+              <span class="advantage-card__icon"
+                ><svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 7h16M4 12h16M4 17h10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+              <h3>Оптовые цены</h3>
+              <p>
+                Фиксируем условия для регулярных закупок и проектных поставок.
+              </p>
+            </article>
+            <article class="advantage-card">
+              <span class="advantage-card__icon"
+                ><svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M3 7h11v10H3zM14 11h4l3 3v3h-7z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="7"
+                    cy="19"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="18"
+                    cy="19"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  /></svg
+              ></span>
+              <h3>Доставка</h3>
+              <p>
+                Отгружаем партии по Москве, регионам и федеральным объектам.
+              </p>
+            </article>
+            <article class="advantage-card">
+              <span class="advantage-card__icon"
+                ><svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3 5 6v5c0 4 3 8 7 10 4-2 7-6 7-10V6l-7-3Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="m8.5 12 2 2 5-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+              <h3>Гарантия</h3>
+              <p>
+                Официальные каналы поставки, документы и сервисная поддержка.
+              </p>
+            </article>
+            <article class="advantage-card">
+              <span class="advantage-card__icon"
+                ><svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 12a8 8 0 1 1 16 0v4a3 3 0 0 1-3 3h-2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M4 13h3v5H4zM17 13h3v5h-3z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  /></svg
+              ></span>
+              <h3>Техподдержка</h3>
+              <p>Помогаем подобрать совместимые решения под ваши задачи.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section featured-products">
         <div class="container">
           <h2 class="section-title">Популярные товары</h2>
+          <div class="products-grid products-grid--featured">
+            <article class="product-card">
+              <img
+                src="assets/images/product-01.png"
+                alt="MSI Titan Pro X12"
+                loading="lazy"
+              /><span class="badge badge--success">В наличии</span>
+              <h3>MSI Titan Pro X12</h3>
+              <p>MSI</p>
+              <strong>189 900 ₽</strong
+              ><a class="btn btn--outline" href="product.html?id=1"
+                >Подробнее</a
+              >
+            </article>
+            <article class="product-card">
+              <img
+                src="assets/images/product-01.png"
+                alt="Dell Precision 3660"
+                loading="lazy"
+              /><span class="badge badge--success">В наличии</span>
+              <h3>Dell Precision 3660</h3>
+              <p>Dell</p>
+              <strong>235 000 ₽</strong
+              ><a class="btn btn--outline" href="product.html?id=5"
+                >Подробнее</a
+              >
+            </article>
+            <article class="product-card">
+              <img
+                src="assets/images/product-01.png"
+                alt="ASUS TUF Gaming GT15"
+                loading="lazy"
+              /><span class="badge badge--success">В наличии</span>
+              <h3>ASUS TUF Gaming GT15</h3>
+              <p>ASUS</p>
+              <strong>132 500 ₽</strong
+              ><a class="btn btn--outline" href="product.html?id=20"
+                >Подробнее</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section steps">
+        <div class="container">
+          <h2 class="section-title">Этапы сотрудничества</h2>
+          <ol class="steps__grid">
+            <li>
+              <h3>Заявка</h3>
+              <p>Получаем список позиций или задачу.</p>
+            </li>
+            <li>
+              <h3>Подбор</h3>
+              <p>Формируем конфигурации и КП.</p>
+            </li>
+            <li>
+              <h3>Договор</h3>
+              <p>Согласуем документы и сроки.</p>
+            </li>
+            <li>
+              <h3>Поставка</h3>
+              <p>Отгружаем заказ и сопровождаем внедрение.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="section reviews">
+        <div class="container">
+          <h2 class="section-title">Отзывы клиентов</h2>
+          <div class="reviews__grid">
+            <article class="review-card">
+              <p>
+                Партия офисных ПК пришла вовремя, все позиции соответствовали
+                спецификации.
+              </p>
+              <div>
+                <span class="avatar">АК</span><strong>Антон Ковалёв</strong
+                ><small>ИТ-директор</small>
+              </div>
+            </article>
+            <article class="review-card">
+              <p>
+                Интерриум быстро подобрал рабочие станции для проектного отдела
+                и помог с документами.
+              </p>
+              <div>
+                <span class="avatar">МС</span><strong>Мария Соколова</strong
+                ><small>Руководитель закупок</small>
+              </div>
+            </article>
+            <article class="review-card">
+              <p>
+                Удобный B2B-процесс: понятный каталог, корзина и оперативная
+                обратная связь.
+              </p>
+              <div>
+                <span class="avatar">ДН</span><strong>Дмитрий Новиков</strong
+                ><small>Системный администратор</small>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section request-section">
+        <div class="container request-section__grid">
+          <div>
+            <h2 class="section-title">Получить оптовое предложение</h2>
+            <p class="section-subtitle">
+              Оставьте контакты, чтобы менеджер подготовил подборку и цены.
+            </p>
+          </div>
+          <form class="form js-validate-form" novalidate>
+            <label class="form__field"
+              >Имя<input name="name" placeholder="Ваше имя" required /></label
+            ><label class="form__field"
+              >Организация<input
+                name="organization"
+                placeholder="Название организации"
+                required /></label
+            ><label class="form__field"
+              >Телефон<input
+                name="phone"
+                type="tel"
+                placeholder="+7 900 000-00-00"
+                required /></label
+            ><label class="form__field"
+              >Email<input
+                name="email"
+                type="email"
+                placeholder="name@company.ru"
+                required /></label
+            ><label class="form__field"
+              >Комментарий<textarea
+                name="message"
+                placeholder="Расскажите о закупке"
+                required
+              ></textarea></label
+            ><button class="btn btn--primary" type="submit">
+              Отправить заявку
+            </button>
+          </form>
         </div>
       </section>
     </main>
-
     <footer class="footer">
-      <div class="container">
+      <div class="container footer__grid">
+        <div>
+          <a href="index.html" class="footer__logo">Интерриум</a>
+          <p>
+            ООО «Интерриум» — B2B-поставщик компьютерной техники для бизнеса,
+            образования и государственных организаций.
+          </p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <h2 class="footer__title">Разделы</h2>
+          <ul class="footer__links">
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="cart.html">Корзина</a></li>
+          </ul>
+        </nav>
+        <address class="footer__address">
+          <h2 class="footer__title">Контакты</h2>
+          <p>Москва, ул. Примерная, 12</p>
+          <p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+          <p><a href="mailto:sales@interrium.ru">sales@interrium.ru</a></p>
+        </address>
+      </div>
+      <div class="container footer__bottom">
         <p class="footer__copy">© 2026 ООО «Интерриум». Все права защищены.</p>
       </div>
     </footer>
-
+    <div class="modal" id="requestModal" aria-hidden="true">
+      <div class="modal__overlay" data-modal-close></div>
+      <div
+        class="modal__window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="requestModalTitle"
+      >
+        <button
+          type="button"
+          class="modal__close"
+          data-modal-close
+          aria-label="Закрыть окно"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6 6l12 12M18 6 6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <form class="form modal__form js-validate-form" novalidate>
+          <h2 id="requestModalTitle" class="form__title">Оставить заявку</h2>
+          <p class="form__text">
+            Заполните форму, и менеджер подготовит оптовое предложение.
+          </p>
+          <label class="form__field"
+            >Имя<input name="name" type="text" placeholder="Ваше имя" required
+          /></label>
+          <label class="form__field"
+            >Организация<input
+              name="organization"
+              type="text"
+              placeholder="Название организации"
+              required
+          /></label>
+          <label class="form__field"
+            >Телефон<input
+              name="phone"
+              type="tel"
+              placeholder="+7 900 000-00-00"
+              required
+          /></label>
+          <label class="form__field"
+            >Email<input
+              name="email"
+              type="email"
+              placeholder="name@company.ru"
+              required
+          /></label>
+          <label class="form__field"
+            >Комментарий<textarea
+              name="message"
+              placeholder="Какие компьютеры вас интересуют"
+              required
+            ></textarea>
+          </label>
+          <button class="btn btn--primary form__submit" type="submit">
+            Отправить
+          </button>
+        </form>
+        <div class="form-success" hidden>
+          <h2>Спасибо! Заявка принята.</h2>
+          <p>Мы свяжемся с вами в ближайшее рабочее время.</p>
+        </div>
+      </div>
+    </div>
     <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
   </body>
 </html>

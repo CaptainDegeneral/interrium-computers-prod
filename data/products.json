@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "title": "MSI Titan Pro X12",
+    "brand": "MSI",
+    "category": "gaming",
+    "price": 189900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "MSI Titan Pro X12 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i7-14700F",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4070",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 2,
+    "title": "ASUS ROG Strix G16",
+    "brand": "ASUS",
+    "category": "gaming",
+    "price": 214500,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "ASUS ROG Strix G16 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i9-14900KF",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4080",
+      "Storage": "SSD 2 ТБ"
+    }
+  },
+  {
+    "id": 3,
+    "title": "HP EliteDesk 800 G9",
+    "brand": "HP",
+    "category": "office",
+    "price": 84900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "HP EliteDesk 800 G9 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-13500",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "Intel UHD 770",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Lenovo ThinkCentre M90t",
+    "brand": "Lenovo",
+    "category": "office",
+    "price": 77900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Lenovo ThinkCentre M90t — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-13400",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "Intel UHD 730",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Dell Precision 3660",
+    "brand": "Dell",
+    "category": "workstation",
+    "price": 235000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Dell Precision 3660 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i9-13900",
+      "RAM": "64 ГБ DDR5",
+      "GPU": "NVIDIA RTX A4000",
+      "Storage": "SSD 2 ТБ"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Acer Veriton X4690G",
+    "brand": "Acer",
+    "category": "office",
+    "price": 62900,
+    "stock": false,
+    "image": "assets/images/product-01.png",
+    "description": "Acer Veriton X4690G — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i3-13100",
+      "RAM": "8 ГБ DDR4",
+      "GPU": "Intel UHD 730",
+      "Storage": "SSD 256 ГБ"
+    }
+  },
+  {
+    "id": 7,
+    "title": "MSI Creator Station P100",
+    "brand": "MSI",
+    "category": "workstation",
+    "price": 199000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "MSI Creator Station P100 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4070 Ti",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 8,
+    "title": "ASUS ExpertCenter D7",
+    "brand": "ASUS",
+    "category": "office",
+    "price": 69900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "ASUS ExpertCenter D7 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-12400",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "Intel UHD 730",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 9,
+    "title": "HP Z2 Tower G9",
+    "brand": "HP",
+    "category": "workstation",
+    "price": 176000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "HP Z2 Tower G9 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Xeon W-1350",
+      "RAM": "32 ГБ ECC",
+      "GPU": "NVIDIA T1000",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 10,
+    "title": "Lenovo Legion Tower 7",
+    "brand": "Lenovo",
+    "category": "gaming",
+    "price": 168500,
+    "stock": false,
+    "image": "assets/images/product-01.png",
+    "description": "Lenovo Legion Tower 7 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "AMD Ryzen 7 7700X",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4070",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Dell OptiPlex 7010",
+    "brand": "Dell",
+    "category": "office",
+    "price": 71900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Dell OptiPlex 7010 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-13500",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "Intel UHD 770",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 12,
+    "title": "Acer Predator Orion 5000",
+    "brand": "Acer",
+    "category": "gaming",
+    "price": 192000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Acer Predator Orion 5000 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i7-13700KF",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4070 Ti",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 13,
+    "title": "MSI Modern Office 5",
+    "brand": "MSI",
+    "category": "office",
+    "price": 58900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "MSI Modern Office 5 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i3-12100",
+      "RAM": "8 ГБ DDR4",
+      "GPU": "Intel UHD 730",
+      "Storage": "SSD 256 ГБ"
+    }
+  },
+  {
+    "id": 14,
+    "title": "ASUS ProArt Station PD5",
+    "brand": "ASUS",
+    "category": "workstation",
+    "price": 219900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "ASUS ProArt Station PD5 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i9-13900F",
+      "RAM": "64 ГБ DDR5",
+      "GPU": "GeForce RTX 4070",
+      "Storage": "SSD 2 ТБ"
+    }
+  },
+  {
+    "id": 15,
+    "title": "HP Pavilion Gaming TG01",
+    "brand": "HP",
+    "category": "gaming",
+    "price": 118000,
+    "stock": false,
+    "image": "assets/images/product-01.png",
+    "description": "HP Pavilion Gaming TG01 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "AMD Ryzen 5 5600G",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "GeForce RTX 3060",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 16,
+    "title": "Lenovo ThinkStation P3",
+    "brand": "Lenovo",
+    "category": "workstation",
+    "price": 154900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Lenovo ThinkStation P3 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "NVIDIA T1000",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 17,
+    "title": "Dell XPS Desktop 8960",
+    "brand": "Dell",
+    "category": "gaming",
+    "price": 149900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Dell XPS Desktop 8960 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i7-13700",
+      "RAM": "32 ГБ DDR5",
+      "GPU": "GeForce RTX 4060 Ti",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 18,
+    "title": "Acer Aspire TC-1780",
+    "brand": "Acer",
+    "category": "office",
+    "price": 53900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Acer Aspire TC-1780 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i3-13100",
+      "RAM": "8 ГБ DDR4",
+      "GPU": "Intel UHD 730",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 19,
+    "title": "MSI Workstation W360",
+    "brand": "MSI",
+    "category": "workstation",
+    "price": 259900,
+    "stock": false,
+    "image": "assets/images/product-01.png",
+    "description": "MSI Workstation W360 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Xeon W-1370",
+      "RAM": "64 ГБ ECC",
+      "GPU": "NVIDIA RTX A4500",
+      "Storage": "SSD 2 ТБ"
+    }
+  },
+  {
+    "id": 20,
+    "title": "ASUS TUF Gaming GT15",
+    "brand": "ASUS",
+    "category": "gaming",
+    "price": 132500,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "ASUS TUF Gaming GT15 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-13400F",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "GeForce RTX 4060",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 21,
+    "title": "HP Pro Tower 400 G9",
+    "brand": "HP",
+    "category": "office",
+    "price": 66900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "HP Pro Tower 400 G9 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i5-12500",
+      "RAM": "16 ГБ DDR4",
+      "GPU": "Intel UHD 770",
+      "Storage": "SSD 512 ГБ"
+    }
+  },
+  {
+    "id": 22,
+    "title": "Lenovo IdeaCentre Gaming 5",
+    "brand": "Lenovo",
+    "category": "gaming",
+    "price": 109900,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Lenovo IdeaCentre Gaming 5 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "AMD Ryzen 5 7600",
+      "RAM": "16 ГБ DDR5",
+      "GPU": "GeForce RTX 4060",
+      "Storage": "SSD 1 ТБ"
+    }
+  },
+  {
+    "id": 23,
+    "title": "Dell Precision 5860",
+    "brand": "Dell",
+    "category": "workstation",
+    "price": 312000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Dell Precision 5860 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Xeon W3-2435",
+      "RAM": "64 ГБ ECC",
+      "GPU": "NVIDIA RTX A5000",
+      "Storage": "SSD 2 ТБ"
+    }
+  },
+  {
+    "id": 24,
+    "title": "Acer ConceptD 500",
+    "brand": "Acer",
+    "category": "workstation",
+    "price": 229000,
+    "stock": true,
+    "image": "assets/images/product-01.png",
+    "description": "Acer ConceptD 500 — надёжный компьютер для оптовых поставок ООО «Интерриум». Конфигурация подходит для корпоративных закупок, внедрения в офисах, учебных аудиториях и профильных рабочих местах.",
+    "specs": {
+      "CPU": "Intel Core i9-13900",
+      "RAM": "64 ГБ DDR5",
+      "GPU": "GeForce RTX 4070",
+      "Storage": "SSD 2 ТБ"
+    }
+  }
+]

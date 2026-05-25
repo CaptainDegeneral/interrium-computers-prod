@@ -1,83 +1,75 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Каталог оптовых компьютеров. Игровые ПК, офисные компьютеры, рабочие станции. Более 1000 позиций."
-    />
-    <title>Каталог компьютеров — Интерриум</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Каталог компьютеров ООО «Интерриум»: игровые ПК, офисные компьютеры и рабочие станции для оптовых поставок бизнесу по всей России." />
+  <title>Каталог компьютеров — ООО Интерриум</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <a href="index.html" class="header__logo">Интерриум</a>
-        <nav class="header__nav">
-          <ul class="header__nav-list">
-            <li>
-              <a href="index.html" class="header__nav-link active">Главная</a>
-            </li>
-            <li>
-              <a href="catalog.html" class="header__nav-link">Каталог</a>
-            </li>
-            <li>
-              <a href="about.html" class="header__nav-link">О компании</a>
-            </li>
-            <li>
-              <a href="contacts.html" class="header__nav-link">Контакты</a>
-            </li>
-          </ul>
-        </nav>
-        <a href="tel:+74951234567" class="header__phone">+7 (495) 123-45-67</a>
-        <button type="button" class="btn btn--primary header__btn">
-          Оставить заявку
-        </button>
-        <a href="cart.html" class="header__cart">Корзина</a>
-      </div>
-    </header>
-
-    <main class="main">
-      <section class="hero">
-        <div class="container">
-          <h1 class="hero__title">Оптовые поставки компьютеров для бизнеса</h1>
-          <p class="hero__subtitle">
-            Надёжный партнёр для компаний, школ и организаций. Более 1000
-            позиций в наличии.
-          </p>
-          <div class="hero__buttons">
-            <button type="button" class="btn btn--primary">
-              Смотреть каталог
-            </button>
-            <button type="button" class="btn btn--outline">
-              Оставить заявку
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="featured-products">
-        <div class="container">
-          <h2 class="section-title">Популярные товары</h2>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p class="footer__copy">© 2026 ООО «Интерриум». Все права защищены.</p>
-      </div>
-    </footer>
-
-    <script src="js\main.js"></script>
-  </body>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/product.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/adaptive.css" />
+</head>
+<body>
+<header class="header" id="siteHeader">
+  <div class="container header__inner">
+    <a href="index.html" class="header__logo" aria-label="ООО Интерриум, на главную">Интерриум</a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__nav-list"><li><a href="index.html" class="header__nav-link ">Главная</a></li>
+<li><a href="catalog.html" class="header__nav-link active">Каталог</a></li>
+<li><a href="about.html" class="header__nav-link ">О компании</a></li>
+<li><a href="contacts.html" class="header__nav-link ">Контакты</a></li></ul>
+    </nav>
+    <a href="tel:+74951234567" class="header__phone">+7 (495) 123-45-67</a>
+    <button type="button" class="btn btn--primary header__btn" data-modal="requestModal">Оставить заявку</button>
+    <a href="cart.html" class="header__cart" aria-label="Перейти в корзину">
+      <svg class="header__cart-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-2 8H8L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.5" fill="currentColor"/><circle cx="18" cy="20" r="1.5" fill="currentColor"/></svg>
+      <span>Корзина</span><span class="header__cart-count">0</span>
+    </a>
+    <button type="button" class="header__burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main class="main">
+<section class="page-hero"><div class="container"><h1>Каталог компьютеров</h1><p>Подберите компьютеры для оптовой закупки по категории, бренду, цене и наличию.</p></div></section>
+<section class="catalog section"><div class="container catalog__layout"><button class="btn btn--outline catalog__filter-toggle" type="button">Показать фильтры</button><aside class="catalog__sidebar"><div class="catalog__sidebar-head"><h2>Фильтры</h2><button type="button" class="catalog__reset">Сбросить</button></div><form class="filters"><fieldset><legend>Категория</legend><label><input type="checkbox" name="category" value="gaming"> Игровые</label><label><input type="checkbox" name="category" value="office"> Офисные</label><label><input type="checkbox" name="category" value="workstation"> Рабочие станции</label><label><input type="checkbox" name="category" value="business"> Бизнес ПК</label></fieldset><fieldset><legend>Бренд</legend><label><input type="checkbox" name="brand" value="MSI"> MSI</label><label><input type="checkbox" name="brand" value="ASUS"> ASUS</label><label><input type="checkbox" name="brand" value="HP"> HP</label><label><input type="checkbox" name="brand" value="Lenovo"> Lenovo</label><label><input type="checkbox" name="brand" value="Dell"> Dell</label><label><input type="checkbox" name="brand" value="Acer"> Acer</label></fieldset><fieldset><legend>Цена до</legend><input class="catalog__price" type="range" min="50000" max="320000" step="1000" value="320000"><output class="catalog__price-output">320 000 ₽</output></fieldset><button class="btn btn--primary" type="button" data-apply-filters>Применить</button></form></aside><div class="catalog__content"><div class="catalog__toolbar"><label class="catalog__search"><span class="visually-hidden">Поиск</span><input type="search" placeholder="Поиск по названию или бренду"><img src="assets/icons/search.svg" alt="" aria-hidden="true"></label><select class="catalog__sort" aria-label="Сортировка"><option value="default">По умолчанию</option><option value="price-asc">Цена: по возрастанию</option><option value="price-desc">Цена: по убыванию</option><option value="title-asc">Название: А-Я</option></select></div><p class="catalog__count">Найдено: 0 товаров</p><div class="catalog__grid"></div><nav class="pagination" aria-label="Пагинация каталога"></nav></div></div></section>
+</main>
+<footer class="footer">
+  <div class="container footer__grid">
+    <div><a href="index.html" class="footer__logo">Интерриум</a><p>ООО «Интерриум» — B2B-поставщик компьютерной техники для бизнеса, образования и государственных организаций.</p></div>
+    <nav aria-label="Навигация в подвале"><h2 class="footer__title">Разделы</h2><ul class="footer__links"><li><a href="catalog.html">Каталог</a></li><li><a href="about.html">О компании</a></li><li><a href="contacts.html">Контакты</a></li><li><a href="cart.html">Корзина</a></li></ul></nav>
+    <address class="footer__address"><h2 class="footer__title">Контакты</h2><p>Москва, ул. Примерная, 12</p><p><a href="tel:+74951234567">+7 (495) 123-45-67</a></p><p><a href="mailto:sales@interrium.ru">sales@interrium.ru</a></p></address>
+  </div>
+  <div class="container footer__bottom"><p class="footer__copy">© 2026 ООО «Интерриум». Все права защищены.</p></div>
+</footer>
+<div class="modal" id="requestModal" aria-hidden="true">
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+    <button type="button" class="modal__close" data-modal-close aria-label="Закрыть окно"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <form class="form modal__form js-validate-form" novalidate>
+      <h2 id="requestModalTitle" class="form__title">Оставить заявку</h2>
+      <p class="form__text">Заполните форму, и менеджер подготовит оптовое предложение.</p>
+      <label class="form__field">Имя<input name="name" type="text" placeholder="Ваше имя" required /></label>
+      <label class="form__field">Организация<input name="organization" type="text" placeholder="Название организации" required /></label>
+      <label class="form__field">Телефон<input name="phone" type="tel" placeholder="+7 900 000-00-00" required /></label>
+      <label class="form__field">Email<input name="email" type="email" placeholder="name@company.ru" required /></label>
+      <label class="form__field">Комментарий<textarea name="message" placeholder="Какие компьютеры вас интересуют" required></textarea></label>
+      <button class="btn btn--primary form__submit" type="submit">Отправить</button>
+    </form>
+    <div class="form-success" hidden><h2>Спасибо! Заявка принята.</h2><p>Мы свяжемся с вами в ближайшее рабочее время.</p></div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/data.js"></script>
+<script src="js/catalog.js"></script>
+</body>
 </html>

@@ -1,0 +1,116 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  min-height: var(--header-height);
+  background-color: rgba(var(--color-white-rgb), .96);
+  backdrop-filter: blur(14px);
+  transition: box-shadow var(--transition-base);
+}
+
+.header.header--scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header__inner {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.header__logo,
+.footer__logo {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.header__nav-link {
+  color: var(--color-dark);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-base);
+}
+
+.header__nav-link:hover,
+.header__nav-link.active {
+  color: var(--color-primary);
+}
+
+.header__phone {
+  color: var(--color-dark);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.header__cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-dark);
+  font-weight: var(--font-weight-semibold);
+}
+
+.header__cart:hover {
+  color: var(--color-primary);
+}
+
+.header__cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header__cart-count {
+  display: grid;
+  min-width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+}
+
+.header__burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-light);
+}
+
+.header__burger span {
+  width: 24px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-dark);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.header__burger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
