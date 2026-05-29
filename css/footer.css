@@ -7,7 +7,7 @@
 .footer p,
 .footer a,
 .footer span {
-  color: rgba(var(--color-white-rgb), .72);
+  color: rgba(var(--color-white-rgb), 0.72);
 }
 
 .footer a {
@@ -52,5 +52,6 @@
 .footer__bottom {
   margin-top: var(--spacing-2xl);
   padding-top: var(--spacing-lg);
-  border-top: 1px solid rgba(var(--color-white-rgb), .12);
+  border-top: 1px solid rgba(var(--color-white-rgb), 0.12);
+  text-align: center;
 }

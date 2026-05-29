@@ -61,10 +61,12 @@
   width: 20px;
   height: 20px;
   flex: 0 0 20px;
-  border: 2px solid rgba(var(--color-gray-rgb), .38);
+  border: 2px solid rgba(var(--color-gray-rgb), 0.38);
   border-radius: var(--radius-sm);
   background-color: var(--color-white);
-  transition: background-color var(--transition-base), border-color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .filters input[type="checkbox"]:checked {
@@ -123,7 +125,7 @@
 
 .catalog__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-lg);
 }
 
@@ -148,11 +150,14 @@
   min-width: 44px;
   min-height: 44px;
   padding: 8px 14px;
-  border: 1px solid rgba(var(--color-gray-rgb), .28);
+  border: 1px solid rgba(var(--color-gray-rgb), 0.28);
   border-radius: var(--radius-md);
   color: var(--color-dark);
   background-color: var(--color-white);
-  transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .pagination button:hover,
