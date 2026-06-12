@@ -1,93 +1,367 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// МОДУЛЬ: cart.js
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ СУЩНОСТИ:
+// Этот файл содержит ВСЮ логику страницы корзины (/cart.html).
+// Он отвечает за:
+// - Загрузку и сохранение корзины из/в localStorage.
+// - Отображение списка товаров в корзине (с картинками, ценами, количеством).
+// - Изменение количества (+ и - кнопки).
+// - Удаление отдельных товаров.
+// - Полную очистку корзины (с подтверждением через модальное окно).
+// - Расчёт итоговой суммы и количества позиций.
+// - Показ модального окна подтверждения очистки.
+// - Интеграцию с общей системой добавления в корзину (updateCartBadge, showToast).
+// 
+// ВАЖНОЕ ЗАМЕЧАНИЕ:
+// В этом файле есть СВОЯ реализация работы с корзиной (loadCart, saveCart, cart переменная),
+// которая частично дублирует логику из main.js (safeParseCart, saveCartItems).
+// Это сделано намеренно для изоляции страницы корзины — она не зависит от main.js для хранения.
+// Однако она вызывает updateCartBadge и showToast из main.js.
+// 
+// КАК ИСПОЛЬЗУЕТСЯ В ПРОЕКТЕ:
+// - Подключается ТОЛЬКО на cart.html (после main.js и modal.js).
+// - Использует глобальные функции: updateCartBadge, showToast (из main.js).
+// - Не использует loadProducts или addToCart напрямую (товары уже в корзине).
+// - При изменениях обновляет badge в шапке (которая есть и на странице корзины).
+// 
+// ЗАДАЧА, КОТОРУЮ РЕШАЕТ:
+// Предоставить пользователю полный контроль над выбранными товарами перед оформлением заявки.
+// Показать итоговую стоимость оптовой закупки.
+// Реализовать безопасную очистку (с подтверждением).
+// 
+// ОСОБЕННОСТИ РЕАЛИЗАЦИИ:
+// - Использует делегирование событий (один слушатель click на контейнере корзины).
+// - Динамическая генерация HTML для каждого товара (createCartItem).
+// - Отдельное модальное окно подтверждения очистки (confirmModal).
+// - Блокировка прокрутки body при открытом модальном.
+// - ARIA-атрибуты для доступности (aria-hidden, aria-label).
+// - Ранние возвраты и проверки на null для robustness.
+// - Форматирование цен через formatCartPrice (аналог formatPrice из других файлов).
+// 
+// ВЗАИМОСВЯЗЬ С ДРУГИМИ ЧАСТЯМИ:
+// - Зависит от: localStorage, DOM, updateCartBadge и showToast (main.js).
+// - cart.html предоставляет разметку: [data-cart-container], #confirmClear, кнопки с data-action.
+// - После очистки или изменений — данные в localStorage обновляются, badge в шапке меняется.
+// - Пользователь может перейти в каталог для добавления новых товаров.
+// 
+// УРОВЕНЬ ДЕТАЛИЗАЦИИ ДЛЯ СТУДЕНТОВ:
+// Подробно объясняется:
+// - дублирование логики корзины (почему так сделано);
+// - делегирование событий vs прямые слушатели;
+// - работа с data-атрибутами и dataset;
+// - модальные окна и блокировка body;
+// - reduce для подсчёта сумм;
+// - как innerHTML используется для перерисовки всего списка;
+// - разница между этой реализацией и той в main.js.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// let cart = loadCart();
+// 
+// ГЛАВНАЯ ПЕРЕМЕННАЯ СОСТОЯНИЯ.
+// Хранит текущий массив товаров в корзине в памяти JavaScript.
+// 
+// Инициализируется сразу при выполнении скрипта вызовом loadCart().
+// 
+// Тип: Array of objects. Каждый объект: {id, title, price, image, quantity}
+// 
+// ВАЖНО:
+// Эта переменная — "источник правды" для страницы корзины.
+// Все изменения (updateQuantity, removeFromCart, очистка) мутируют именно её.
+// После каждого изменения вызывается saveCart() и renderCart().
+// 
+// Почему let: значение переприсваивается при очистке корзины (cart = []).
 let cart = loadCart();
+
+// const cartContainer = document.querySelector('[data-cart-container]');
+// 
+// Ссылка на главный контейнер, куда мы будем вставлять содержимое корзины.
+// В HTML это <div class="cart" data-cart-container></div>.
+// 
+// Если элемент не найден (защита) — cartContainer будет null, и все функции рендеринга будут ранними возвратами.
 const cartContainer = document.querySelector('[data-cart-container]');
+
+// const confirmModal = document.getElementById('confirmClear');
+// 
+// Ссылка на модальное окно подтверждения очистки корзины.
+// В HTML: <div class="confirm-modal" id="confirmClear" ...>
+// 
+// Используем getElementById, потому что ищем по уникальному id (быстрее и точнее, чем querySelector).
+// Если не найдено — null.
 const confirmModal = document.getElementById('confirmClear');
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: loadCart()
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Загружает корзину из localStorage. Почти идентична safeParseCart() из main.js,
+// но существует отдельно для независимости этого модуля.
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// Ничего.
+// 
+// КАКИЕ ДАННЫЕ ВОЗВРАЩАЕТ:
+// Массив товаров или [] при любой ошибке/отсутствии данных.
+// 
+// ЗАЧЕМ ДУБЛИРОВАНИЕ:
+// Страница корзины должна работать даже если main.js по какой-то причине не загрузился
+// (хотя на практике оба подключены). Также это делает модуль более самодостаточным для обучения.
 function loadCart() {
+  // Получаем строку из localStorage по ключу 'cart' (жёстко прописан, в отличие от константы в main.js).
   const saved = localStorage.getItem('cart');
+
+  // Если ничего нет — возвращаем пустой массив сразу.
   if (!saved) {
     return [];
   }
+
+  // Пытаемся распарсить JSON.
   try {
     const parsed = JSON.parse(saved);
+    // Защита: если вдруг в localStorage лежит не массив — возвращаем [].
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
+    // При любой ошибке парсинга (повреждённые данные) — возвращаем [].
+    // Ошибка не логируется подробно, чтобы не пугать пользователя.
     return [];
   }
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: saveCart()
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Сохраняет текущий массив cart в localStorage.
+// Аналог saveCartItems из main.js.
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// Ничего (использует глобальную переменную cart).
+// 
+// КАКИЕ ДАННЫЕ ВОЗВРАЩАЕТ:
+// Ничего (side effect — запись в хранилище).
 function saveCart() {
+  // JSON.stringify превращает массив объектов в строку JSON.
+  // localStorage.setItem сохраняет эту строку под ключом 'cart'.
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: removeFromCart(id)
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Удаляет товар с указанным id из массива cart.
+// Сохраняет изменения и обновляет badge в шапке.
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// id — идентификатор товара (строка или число, приводится к числу внутри).
+// 
+// КАКИЕ ДАННЫЕ ВОЗВРАЩАЕТ:
+// Ничего (мутирует cart, вызывает save и update badge).
 function removeFromCart(id) {
+  // Array.prototype.filter:
+  // Создаёт НОВЫЙ массив, оставляя только те элементы,
+  // для которых callback вернул true.
+  // 
+  // Здесь: оставляем все товары, id которых НЕ равен переданному id.
+  // Number(...) — защита от сравнения строки и числа.
   cart = cart.filter((item) => Number(item.id) !== Number(id));
+
+  // Сохраняем новое состояние.
   saveCart();
+
+  // Обновляем красный счётчик в шапке (теперь товаров стало меньше).
   updateCartBadge();
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: updateQuantity(id, delta)
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Изменяет количество конкретного товара на delta (+1 или -1).
+// Если после изменения quantity <= 0 — товар удаляется полностью.
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// id — идентификатор товара.
+// delta — число (обычно +1 или -1).
+// 
+// КАКИЕ ДАННЫЕ ВОЗВРАЩАЕТ:
+// Ничего (или вызывает removeFromCart).
 function updateQuantity(id, delta) {
+  // Ищем товар в корзине по id.
+  // Array.prototype.find — возвращает первый подходящий элемент или undefined.
   const item = cart.find((product) => Number(product.id) === Number(id));
+
+  // Если товар не найден — выходим (защита от рассинхронизации).
   if (!item) return;
+
+  // Изменяем количество.
+  // item.quantity += delta; — мутирует объект (потому что find вернул ссылку на объект внутри cart).
   item.quantity += delta;
+
+  // Если количество стало 0 или меньше — удаляем товар полностью.
+  // Это удобно для пользователя: при многократном нажатии "-" товар исчезает.
   if (item.quantity <= 0) {
     removeFromCart(id);
-    return;
+    return; // выходим, чтобы не делать лишний save и render ниже
   }
+
+  // Сохраняем и обновляем badge.
   saveCart();
   updateCartBadge();
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: getTotalPrice()
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Считает общую стоимость всех товаров в корзине (цена × количество для каждого).
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// Ничего.
+// 
+// КАКИЕ ДАННЫЕ ВОЗВРАЩАЕТ:
+// Число — итоговая сумма в рублях.
+// 
+// ИСПОЛЬЗУЕТСЯ В:
+// renderCart() — для отображения "Сумма".
 function getTotalPrice() {
+  // reduce — сворачивает массив в одно значение (сумму).
+  // Начальное значение аккумулятора = 0.
+  // На каждой итерации добавляем (цена товара × его количество).
   return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: getCartCountLocal()
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Считает общее количество единиц товаров (сумма quantity).
+// Аналог getCartCount из main.js.
+// 
+// ИСПОЛЬЗУЕТСЯ В:
+// renderCart() — для строки "Количество позиций".
 function getCartCountLocal() {
+  // reduce с начальным 0.
   return cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: formatCartPrice(price)
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Форматирует цену так же, как formatPrice в других файлах.
+// Выделена отдельно, чтобы cart.js был более независимым.
+// 
+// ПРИМЕР: 189900 → "189 900 ₽"
 function formatCartPrice(price) {
   return `${Number(price).toLocaleString('ru-RU')} ₽`;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: createCartItem(item)
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Генерирует HTML-строку для одного товара в корзине.
+// Аналог createProductCard из catalog.js.
+// 
+// КАКИЕ ДАННЫЕ ПРИНИМАЕТ:
+// item — объект товара из cart (с id, title, price, image, quantity).
+// 
+// ВОЗВРАЩАЕТ:
+// Строку HTML <article class="cart-item" data-id="...">...</article>
+// 
+// ОСОБЕННОСТИ РАЗМЕТКИ:
+// - data-id на article — используется при делегировании кликов.
+// - Кнопки имеют data-action="plus", "minus", "remove", "clear".
+// - input с readonly (количество нельзя редактировать вручную).
+// - aria-label на элементах для доступности.
 function createCartItem(item) {
-  return `<article class="cart-item" data-id="${item.id}">
-    <img class="cart-item__image" src="${item.image}" alt="${item.title}" loading="lazy" />
-    <div><h2 class="cart-item__title">${item.title}</h2><p class="cart-item__price">${formatCartPrice(item.price)}</p></div>
-    <div class="cart-item__qty" aria-label="Количество товара">
-      <button type="button" data-action="minus" aria-label="Уменьшить количество">−</button>
-      <input type="text" value="${item.quantity}" readonly aria-label="Текущее количество" />
-      <button type="button" data-action="plus" aria-label="Увеличить количество">+</button>
+  // Большая шаблонная строка с интерполяцией данных.
+  // Обратите внимание на вычисление суммы для позиции: formatCartPrice(item.price * item.quantity)
+  return `<article class=\"cart-item\" data-id=\"${item.id}\">
+    <img class=\"cart-item__image\" src=\"${item.image}\" alt=\"${item.title}\" loading=\"lazy\" />
+    <div><h2 class=\"cart-item__title\">${item.title}</h2><p class=\"cart-item__price\">${formatCartPrice(item.price)}</p></div>
+    <div class=\"cart-item__qty\" aria-label=\"Количество товара\">
+      <button type=\"button\" data-action=\"minus\" aria-label=\"Уменьшить количество\">−</button>
+      <input type=\"text\" value=\"${item.quantity}\" readonly aria-label=\"Текущее количество\" />
+      <button type=\"button\" data-action=\"plus\" aria-label=\"Увеличить количество\">+</button>
     </div>
-    <p class="cart-item__sum">${formatCartPrice(item.price * item.quantity)}</p>
-    <button class="cart-item__remove" type="button" data-action="remove">Удалить</button>
+    <p class=\"cart-item__sum\">${formatCartPrice(item.price * item.quantity)}</p>
+    <button class=\"cart-item__remove\" type=\"button\" data-action=\"remove\">Удалить</button>
   </article>`;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИЯ: renderCart()
+// ═══════════════════════════════════════════════════════════════════════════════
+// 
+// НАЗНАЧЕНИЕ:
+// Полностью перерисовывает содержимое корзины.
+// Если корзина пуста — показывает специальный "пустой" экран с ссылкой на каталог.
+// Если есть товары — генерирует список + боковую панель с итогами и кнопками.
+// 
+// ВЫЗЫВАЕТСЯ:
+// - При начальной загрузке (DOMContentLoaded).
+// - После любого изменения (плюс, минус, удалить, очистить).
+// 
+// КАК РАБОТАЕТ:
+// Полностью заменяет innerHTML cartContainer.
+// Это просто, но для больших списков не оптимально (можно было бы использовать более умный diff).
 function renderCart() {
+  // Если контейнера нет — ничего не делаем (защита).
   if (!cartContainer) return;
 
+  // === СЛУЧАЙ ПУСТОЙ КОРЗИНЫ ===
   if (cart.length === 0) {
-    cartContainer.innerHTML = `<div class="cart__empty"><h2>Корзина пуста</h2><p>Добавьте товары из каталога, чтобы оформить оптовую заявку.</p><a class="btn btn--primary" href="catalog.html">Перейти в каталог</a></div>`;
+    // Вставляем красивый "пустой" экран с призывом перейти в каталог.
+    cartContainer.innerHTML = `<div class=\"cart__empty\"><h2>Корзина пуста</h2><p>Добавьте товары из каталога, чтобы оформить оптовую заявку.</p><a class=\"btn btn--primary\" href=\"catalog.html\">Перейти в каталог</a></div>`;
     return;
   }
 
-  cartContainer.innerHTML = `<div class="cart__content">
-    <div class="cart__items">${cart.map(createCartItem).join('')}</div>
-    <aside class="cart__summary">
+  // === СЛУЧАЙ, КОГДА ЕСТЬ ТОВАРЫ ===
+  // Генерируем HTML для:
+  // 1. Списка товаров (.cart__items) — map + join.
+  // 2. Боковой панели (.cart__summary) с итогами и кнопками действий.
+  cartContainer.innerHTML = `<div class=\"cart__content\">
+    <div class=\"cart__items\">${cart.map(createCartItem).join('')}</div>
+    <aside class=\"cart__summary\">
       <h2>Итого</h2>
-      <div class="cart__summary-row"><span>Количество позиций</span><strong>${getCartCountLocal()}</strong></div>
-      <div class="cart__summary-row cart__summary-total"><span>Сумма</span><strong>${formatCartPrice(getTotalPrice())}</strong></div>
-      <button class="btn btn--primary" type="button" data-modal="requestModal">Оформить заказ</button>
-      <a class="btn btn--outline" href="catalog.html">Продолжить покупки</a>
-      <button class="btn btn--outline" type="button" data-action="clear">Очистить корзину</button>
+      <div class=\"cart__summary-row\"><span>Количество позиций</span><strong>${getCartCountLocal()}</strong></div>
+      <div class=\"cart__summary-row cart__summary-total\"><span>Сумма</span><strong>${formatCartPrice(getTotalPrice())}</strong></div>
+      <button class=\"btn btn--primary\" type=\"button\" data-modal=\"requestModal\">Оформить заказ</button>
+      <a class=\"btn btn--outline\" href=\"catalog.html\">Продолжить покупки</a>
+      <button class=\"btn btn--outline\" type=\"button\" data-action=\"clear\">Очистить корзину</button>
     </aside>
   </div>`;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ФУНКЦИИ УПРАВЛЕНИЯ МОДАЛЬНЫМ ОКНОМ ПОДТВЕРЖДЕНИЯ ОЧИСТКИ
+// ═══════════════════════════════════════════════════════════════════════════════
+
 function openConfirm() {
+  // Если модальное окно существует в DOM —
   if (confirmModal) {
+    // Добавляем класс, который делает его видимым (CSS transition/анимация).
     confirmModal.classList.add('is-open');
+
+    // ARIA: говорим скринридерам, что модальное теперь видимо.
     confirmModal.setAttribute('aria-hidden', 'false');
+
+    // Блокируем прокрутку основной страницы (пользователь не может скроллить под модальным).
     document.body.classList.add('is-locked');
   }
 }
@@ -100,38 +374,62 @@ function closeConfirm() {
   }
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ОБРАБОТЧИКИ СОБЫТИЙ
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// === ДЕЛЕГИРОВАННЫЙ ОБРАБОТЧИК КЛИКОВ ВНУТРИ КОРЗИНЫ ===
+// 
+// Один слушатель на cartContainer ловит все клики на кнопках внутри.
+// Это эффективно, потому что кнопки создаются динамически через innerHTML.
 if (cartContainer) {
   cartContainer.addEventListener('click', (event) => {
+    // Находим ближайшую кнопку <button>, на которой был клик (или внутри которой).
     const button = event.target.closest('button');
-    if (!button) return;
+    if (!button) return; // клик был не на кнопке — игнорируем
+
+    // Находим ближайший .cart-item (чтобы получить id товара).
     const item = button.closest('.cart-item');
     const id = item ? item.dataset.id : null;
+
+    // Читаем data-action с кнопки.
     const action = button.dataset.action;
 
+    // В зависимости от action выполняем соответствующее действие.
+    // После любого действия — перерисовываем корзину.
     if (action === 'plus') updateQuantity(id, 1);
     if (action === 'minus') updateQuantity(id, -1);
     if (action === 'remove') removeFromCart(id);
-    if (action === 'clear') openConfirm();
+    if (action === 'clear') openConfirm(); // не сразу очищаем, а показываем подтверждение
 
+    // ВАЖНО: renderCart() вызывается ВСЕГДА после обработки,
+    // даже если action был 'clear' (в этом случае просто обновится список, но модальное откроется).
     renderCart();
   });
 }
 
+// === ОБРАБОТЧИК МОДАЛЬНОГО ОКНА ПОДТВЕРЖДЕНИЯ ===
 if (confirmModal) {
+  // Слушаем клики на всём модальном окне (делегирование).
   confirmModal.addEventListener('click', (event) => {
+    // Если клик на сам overlay (фон) ИЛИ на кнопку "Отмена" — закрываем.
     if (event.target === confirmModal || event.target.closest('[data-confirm-cancel]')) {
       closeConfirm();
     }
+
+    // Если клик на кнопку "Очистить" (data-confirm-ok) —
     if (event.target.closest('[data-confirm-ok]')) {
+      // Полностью очищаем состояние.
       cart = [];
       saveCart();
       updateCartBadge();
-      renderCart();
+      renderCart(); // теперь покажет "Корзина пуста"
       closeConfirm();
       showToast('Корзина очищена');
     }
   });
 
+  // Дополнительно: закрываем модальное по клавише Escape (даже если фокус не на модальном).
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeConfirm();
@@ -139,8 +437,19 @@ if (confirmModal) {
   });
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ЗАПУСК ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// Когда HTML полностью разобран —
 document.addEventListener('DOMContentLoaded', () => {
+  // Перезагружаем cart из localStorage (на случай, если данные изменились в другой вкладке).
+  // Хотя loadCart уже был вызван при инициализации скрипта, делаем ещё раз на всякий случай.
   cart = loadCart();
+
+  // Отрисовываем текущее состояние.
   renderCart();
+
+  // Обновляем бейдж в шапке (важно, если пользователь пришёл на cart.html с товарами).
   updateCartBadge();
 });
