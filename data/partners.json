@@ -1,0 +1,38 @@
+[
+  {
+    "src": "./assets/images/carousel_logo/msi-logo.png",
+    "alt": "MSI"
+  },
+  {
+    "src": "./assets/images/carousel_logo/asus-logo.png",
+    "alt": "ASUS"
+  },
+  {
+    "src": "./assets/images/carousel_logo/hp-logo.png",
+    "alt": "HP"
+  },
+  {
+    "src": "./assets/images/carousel_logo/lenovo-logo.png",
+    "alt": "Lenovo"
+  },
+  {
+    "src": "./assets/images/carousel_logo/dell-logo.png",
+    "alt": "Dell"
+  },
+  {
+    "src": "./assets/images/carousel_logo/acer-logo.png",
+    "alt": "Acer"
+  },
+  {
+    "src": "./assets/images/carousel_logo/intel-logo.png",
+    "alt": "Intel"
+  },
+  {
+    "src": "./assets/images/carousel_logo/amd-logo.png",
+    "alt": "AMD"
+  },
+  {
+    "src": "./assets/images/carousel_logo/nvidia-logo.png",
+    "alt": "NVIDIA"
+  }
+]
